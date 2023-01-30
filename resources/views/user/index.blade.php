@@ -56,4 +56,4 @@ $i=1;
 @endforeach
 
 </table>
-<a href="{{url('')}}"><h1><button type="submit" >Check Deleted Numbers</button></h1></a>
+<a href="{{url('api/dlt')}}"><h1><button type="submit" >view Deleted</button></h1></a>

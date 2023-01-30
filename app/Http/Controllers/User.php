@@ -7,6 +7,7 @@ use DB;
 use App\Contact;
 use App\Number;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Resources\Deleted;
 class user extends Controller
 {
     /**
@@ -27,6 +28,13 @@ class user extends Controller
         
         return view("user.index",compact("users"));
         //return view("user.index");
+    }
+    public function getData(){
+        //return ["name"=>"harshit"];
+        //return [Number::all()];
+        $data = Number::onlyTrashed()->get();
+        return Deleted::collection($data);
+
     }
 
     /**
@@ -225,6 +233,7 @@ class user extends Controller
         
         $num = ['mobile' => $request->mobile3];
         Number::where('id',$request->id3)->update($num);
+        
 
         return redirect('user');
         //DB::table('user')->where('id','=',$id)->update($data);
