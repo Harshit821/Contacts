@@ -4,7 +4,7 @@
     <?php 
     $i=0;
     ?>
-    @foreach($nums as $num)
+    @foreach($users->numbers as $num)
     <?php $n1[$i++] = $num; ?>
     @endforeach
     @foreach ($errors->all() as $error)

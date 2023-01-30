@@ -165,9 +165,11 @@ class user extends Controller
         //$users = DB::table('user')->where('id','=',$id)->first();
         // $users = Contact::where('id',$id)->first();
         // $nums = Number::where('Contact_id',$id)->get();
-        $users = Contact::show_con($id);
-        $nums = Number::show_no($id);
-        return view("user.edit",compact("users","nums"));
+        $Contact = new Contact;
+        $users = $Contact->show_con($id);
+        return view("user.edit",compact("users"));
+       // $nums = Number::show_no($id);
+       // return view("user.edit",compact("users","nums"));
         //user/id/edit (get)
     }
 
